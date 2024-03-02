@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script>
+  <script src="main.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наливатор</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+      .container {
+          text-align: center;
+      }
+      input[type="number"] {
+          padding: 8px;
+          margin: 5px;
+      }
+      button {
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+      }
+      button:hover {
+          background-color: #0056b3;
+      }
+  </style>
+
+</head>
+
+<body>
+<!-- <div class="container">
+    <h2>Введите объем (мл)</h2>
+    <input type="number" id="waterVolume" min="0" step="1">
+    <button onclick="pourWater()">Налить</button>
+</div> -->
+
+
+
+<div class="container">
+    <h2>Введите объем воды (мл)</h2>
+    <input type="number" id="waterVolume" min="0" max="150" step="1" >
+    <button onclick="publishMessage()">Налить</button>
+</div>

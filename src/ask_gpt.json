@@ -1,0 +1,22 @@
+{
+    "modelUri": "gpt://b1g33lt1idn4sovvb35c/yandexgpt-lite",
+    "messages": [
+      {
+        "text": "Переводи  в число написанное арабскими цифрами, ответ запиши числом",
+        "role": "system"
+      },
+      {
+        "text": "",
+        "role": "user"
+      }
+    ],
+    "completionOptions": {
+      "stream": true,
+      "maxTokens": {
+        "value": 500
+      },
+      "temperature": {
+        "value": 0.1
+      }
+    }
+  }

@@ -4,15 +4,16 @@ import Button from './components/Button'
 
 import './App.css';
 import client from './components/mqtt_service';
-import Paho from 'paho-mqtt';
+// import Paho from 'paho-mqtt';
+import mqtt from 'mqtt'
 
 const initializeAssistant = (getState /*: any*/, getRecoveryState) => {
   if (process.env.NODE_ENV === 'development') {
     return createSmartappDebugger({
       token: process.env.REACT_APP_TOKEN ?? '',
       initPhrase: `Запусти ${process.env.REACT_APP_SMARTAPP}`,
-      getState,                                           
-      // getRecoveryState: getState,                                           
+      getState,
+      // getRecoveryState: getState,
       nativePanel: {
         defaultText: 'Приготовьте рюмки',
         screenshotMode: false,
@@ -84,7 +85,7 @@ export class App extends React.Component {
         ],
       },
     };
-    // console.log('getStateForAssistant: state:', state);
+    // console.('getStateForAssistant: state:', state);
     return state;
   }
 
@@ -98,10 +99,12 @@ export class App extends React.Component {
   dispence(action) {
     // console.log('DISPENCE');
     // console.log(action.note);
-    const mess = new Paho.Message(action.note);
-    mess.destinationName = "semelion/value"
-    client.send(mess);
-    console.log(mess);
+
+    // const mess = new Paho.Message(action.note);
+    // mess.destinationName = "semelion/value"
+    // client.send(mess);
+    client.publish("semelion/value", action.note)
+    console.log(action.note);
   }
 
 
@@ -123,18 +126,18 @@ export class App extends React.Component {
     });
   }
 
-  
+
 
   render() {
     // console.log('render');
     return (
       <>
        <div className="container"><h2>Введите объем воды (мл)</h2>
-         <input type="number" id="waterVolume" 
+         <input type="number" id="waterVolume"
             min="0" max="150" step="1" required
             autoFocus />
         <Button />
-        
+
       </div>
     </>
     );

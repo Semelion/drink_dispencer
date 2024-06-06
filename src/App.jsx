@@ -5,7 +5,6 @@ import Button from './components/Button'
 import './App.css';
 import client from './components/mqtt_service';
 // import Paho from 'paho-mqtt';
-import mqtt from 'mqtt'
 
 const initializeAssistant = (getState /*: any*/, getRecoveryState) => {
   if (process.env.NODE_ENV === 'development') {

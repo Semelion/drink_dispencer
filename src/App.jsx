@@ -14,7 +14,7 @@ const initializeAssistant = (getState /*: any*/, getRecoveryState) => {
       getState,
       // getRecoveryState: getState,
       nativePanel: {
-        defaultText: 'Приготовьте рюмки',
+        // defaultText: 'Приготовьте рюмки',
         screenshotMode: false,
         tabIndex: -1,
     },

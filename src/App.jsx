@@ -36,11 +36,11 @@ export class App extends React.Component {
     this.assistant = initializeAssistant(() => this.getStateForAssistant());
 
     this.assistant.on('data', (event /*: any*/) => {
-      // console.log(`assistant.on(data)`, event);
+      console.log(`assistant.on(data)`, event);
       if (event.type === 'character') {
-        // console.log(`assistant.on(data): character: "${event?.character?.id}"`);
+        console.log(`assistant.on(data): character: "${event?.character?.id}"`);
       } else if (event.type === 'insets') {
-        // console.log(`assistant.on(data): insets`);
+        console.log(`assistant.on(data): insets`);
       } else {
         const { action } = event;
         this.dispatchAssistantAction(action);
@@ -50,19 +50,19 @@ export class App extends React.Component {
     this.assistant.on('start', (event) => {
       let initialData = this.assistant.getInitialData();
 
-      // console.log(`assistant.on(start)`, event, initialData);
+      console.log(`assistant.on(start)`, event, initialData);
     });
 
     this.assistant.on('command', (event) => {
-      // console.log(`assistant.on(command)`, event);
+      console.log(`assistant.on(command)`, event);
     });
 
     this.assistant.on('error', (event) => {
-      // console.log(`assistant.on(error)`, event);
+      console.log(`assistant.on(error)`, event);
     });
 
     this.assistant.on('tts', (event) => {
-      // console.log(`assistant.on(tts)`, event);
+      console.log(`assistant.on(tts)`, event);
     });
   }
 
@@ -71,7 +71,7 @@ export class App extends React.Component {
   }
 
   getStateForAssistant() {
-    // console.log('getStateForAssistant: this.state:', this.state);
+    console.log('getStateForAssistant: this.state:', this.state);
     const state = {
       item_selector: {
         items: this.state.notes.map(({ id, title }, index) => ({
@@ -84,12 +84,12 @@ export class App extends React.Component {
         ],
       },
     };
-    // console.('getStateForAssistant: state:', state);
+    console.log('getStateForAssistant: state:', state);
     return state;
   }
 
   dispatchAssistantAction(action) {
-    // console.log('dispatchAssistantAction', action);
+    console.log('dispatchAssistantAction', action);
     if (action) {
       return this.dispence(action);
     }
